@@ -7,6 +7,7 @@ import direction from "./assets/arrow.png";
 import humidity from "./assets/humidity.svg";
 import pressure from "./assets/pressure.svg";
 import { AnimatePresence, motion } from "framer-motion";
+import searchIcon from "./assets/search.svg";
 
 const api = {
   key: "9ebd222b1147219970a793e3f797b221",
@@ -19,15 +20,18 @@ function App() {
   const [weather, setWeather] = useState();
   const floor = (arg) => Math.floor(arg);
 
+  const fetchFn = () => {
+    fetch(`${api.baseUrl}weather?q=${query}&units=metric&APPID=${api.key}`)
+      .then((res) => res.json())
+      .then((result) => {
+        setWeather(result);
+        setQuery("");
+      });
+  };
+
   const search = (event) => {
     if (event.key === "Enter") {
-      fetch(`${api.baseUrl}weather?q=${query}&units=metric&APPID=${api.key}`)
-        .then((res) => res.json())
-        .then((result) => {
-          setWeather(result);
-          setQuery("");
-          console.log(result);
-        });
+      fetchFn();
     }
   };
 
@@ -105,22 +109,31 @@ function App() {
           animate={{ y: 0 }}
           transition={{ duration: 0.3 }}
         >
-          <span>akobir_9990</span>
+          <span></span>
           <p>weather app</p>
         </motion.div>
-        <motion.input
+        <motion.div
           initial={{ y: -100 }}
           animate={{ y: 0 }}
           transition={{ duration: 0.3 }}
-          autoFocus
-          type="text"
-          name=""
           id="input"
-          placeholder="Where you wanna know"
-          onChange={(e) => setQuery(e.target.value)}
-          value={query}
-          onKeyPress={search}
-        />
+        >
+          <input
+            autoFocus
+            type="text"
+            name=""
+            placeholder="Where you wanna know"
+            onChange={(e) => setQuery(e.target.value)}
+            value={query}
+            onKeyPress={search}
+          />
+          <img
+            onClick={() => fetchFn()}
+            className="searchIcon"
+            src={searchIcon}
+            alt=""
+          />
+        </motion.div>
       </AnimatePresence>
       {weather?.message != "city not found" ? (
         <>

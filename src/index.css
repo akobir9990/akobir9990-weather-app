@@ -54,16 +54,33 @@ body {
 #input {
   width: 80%;
   height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   padding: 15px 10px;
   border: 1px solid white;
   border-radius: 10px;
-  background: rgba(255, 255, 255, 0.2);
-  outline: none;
+  background: rgba(126, 118, 118, 0.2);
   margin-bottom: 50px;
+}
+#input input {
   color: white;
+  flex-grow: 1;
+  background: transparent;
+  height: 40px;
+  outline: none;
+  border: none;
+  font-size: 15px;
+}
+#input .searchIcon {
+  cursor: pointer;
+  transition: 0.2s ease-in-out;
+}
+#input .searchIcon:hover {
+  transform: scale(1.2);
 }
 
-#input::placeholder {
+#input input::placeholder {
   opacity: 0.5;
   color: white;
 }
