@@ -112,6 +112,7 @@ function App() {
           initial={{ y: -100 }}
           animate={{ y: 0 }}
           transition={{ duration: 0.3 }}
+          autoFocus
           type="text"
           name=""
           id="input"
