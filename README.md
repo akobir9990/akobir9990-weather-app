@@ -2,7 +2,7 @@
 
 
 ## Description
-- Bu ob-havo API laridan foydalanib rostakam datalarni olib kerib beradigan dastur. Maqsad API lar bilan ishlash ularni chaqirish UI ga chiqarish kabi ko'nikmalarni o'rganish maqsadida yaratganman
+- This is a program that fetches real time data using weather APIs. The goal is to learn skills such as working with APIs and exposing them to the UI
 
 
 ## Installation:
