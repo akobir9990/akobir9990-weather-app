@@ -8,7 +8,7 @@
 ## Installation:
 Clone the repository:
 ```
-git clone [https://github.com/akobir9990/maxway.git](https://github.com/akobir9990/akobir9990-weather-app.git)
+git clone https://github.com/akobir9990/akobir9990-weather-app.git)
 ```
 Navigate to the project directory:
 ```
